@@ -41,14 +41,11 @@ class Game():
 			return temp
 	
 	def check(self, guess):
-		if len(guess) != 5:
-			print(f"Invalid word")
-			return None
-		if guess in wordList:
-			return self.checkword(guess)
-		else:
-			print(f"Not a word")
-			return None
+		while guess not in wordList or len(guess) != 5:
+			print(f"invalid word")
+			guess = input()
+			guess.strip()
+		return self.checkword(guess)
 
 
 import os
